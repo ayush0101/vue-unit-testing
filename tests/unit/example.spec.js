@@ -28,4 +28,17 @@ describe('HelloWorld.vue', () => {
     instance.vm.increment(2);
     expect(instance.vm.$data.counter).toBe(6);
   });
+
+  //  skip tests by using it.skip(...)
+  //  we can ignore the whole suite by using describe.skip(...)
+  //  Some examples are here: https://codewithhugo.com/run-skip-single-jest-test/
+  it.skip('this is skipped', () => {
+    const instance = wrapper(HelloWorld);
+    instance.vm.increment(2);
+    expect(instance.vm.$data.counter).toBe(2);
+    instance.vm.increment(2);
+    expect(instance.vm.$data.counter).toBe(4);
+    instance.vm.increment(2);
+    expect(instance.vm.$data.counter).toBe(6);
+  });
 });
