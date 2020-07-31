@@ -23,5 +23,9 @@ describe('HelloWorld.vue', () => {
     const instance = wrapper(HelloWorld);
     instance.vm.increment(2);
     expect(instance.vm.$data.counter).toBe(2);
+    instance.vm.increment(2);
+    expect(instance.vm.$data.counter).toBe(4);
+    instance.vm.increment(2);
+    expect(instance.vm.$data.counter).toBe(6);
   });
 });
