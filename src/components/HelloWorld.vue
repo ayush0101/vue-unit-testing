@@ -1,6 +1,7 @@
 <template>
   <div class="hello">
-    <p>{{counter}}</p>
+    <p>This is a non testing p</p>
+    <p data-testid="result-p">{{ counter }}</p>
     <button @click="increment(2)">Increment</button>
   </div>
 </template>
@@ -9,18 +10,18 @@
 export default {
   name: "HelloWorld",
   props: {
-    msg: String
+    msg: String,
   },
   data() {
     return {
-      counter: 0
+      counter: 0,
     };
   },
   methods: {
     increment(n) {
       this.counter += n;
-    }
-  }
+    },
+  },
 };
 </script>
 

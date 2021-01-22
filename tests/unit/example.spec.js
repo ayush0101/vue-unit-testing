@@ -19,13 +19,15 @@ describe('HelloWorld.vue', () => {
   });
 
   //  method invocation
-  it('correctly increments the counter when called', () => {
+  it('correctly increments the counter when called', async () => {
     const instance = wrapper(HelloWorld);
-    instance.vm.increment(2);
-    expect(instance.vm.$data.counter).toBe(2);
-    instance.vm.increment(2);
-    expect(instance.vm.$data.counter).toBe(4);
-    instance.vm.increment(2);
-    expect(instance.vm.$data.counter).toBe(6);
+
+    instance.find('button').trigger('click');
+    await instance.vm.$nextTick();
+    const result = parseInt(
+      instance.find('[data-testid="result-p"]').element.textContent
+    );
+
+    expect(result).toEqual(2);
   });
 });
